@@ -9,7 +9,7 @@ void Chat1::protocol(int flag){
         QByteArray d = message.toUtf8();
 
         int k_bite=sz.toInt();
-
+        if(k_bite==2) k_bite++;
         try {
 
         if (k_bite>1) qDebug()<<"success";
