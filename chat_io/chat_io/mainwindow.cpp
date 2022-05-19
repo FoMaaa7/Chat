@@ -88,6 +88,7 @@ void Chat1::size_dlg(){
 }
 
 void Chat1::send_mes(){
+    if (send->toPlainText()!=""){
     yt=0;
     sz=size_packet->toPlainText();
     delete dlg;
@@ -108,7 +109,7 @@ void Chat1::send_mes(){
     control.clear();
     words.clear();
     send->clear();
-
+}
 }
 
 Chat1::~Chat1()
@@ -117,7 +118,8 @@ Chat1::~Chat1()
 }
 
 void Chat1::sending(){
+    if(send->toPlainText()!=""){
         socket->writeDatagram(send->toPlainText().toUtf8(),QHostAddress("192.168.56.101"), 9999);
         communic->append("Я: "+ send->toPlainText());
-        send->clear();
+        send->clear();}
 }
